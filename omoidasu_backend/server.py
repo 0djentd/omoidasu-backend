@@ -1,32 +1,13 @@
-from fastapi import FastAPI, HTTPException, Depends
-from sqlalchemy.orm import Session
+from fastapi import FastAPI, HTTPException, Depends, APIRouter
 from pydantic import BaseModel
-from . import database, models, crud, schemas
+from . import database 
+from .routers import cards as cards_router
+from .routers import users as users_router
 
 database.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
-
-
-def get_db():
-    db = database.SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-
-# ========= /api/cards/ ===========
-@app.get("/api/cards/", response_model=list[schemas.Card])
-def cards_list(db: Session = Depends(get_db)):
-    return crud.get_cards_list(db)
-
-
-@app.post("/api/cards/", response_model=schemas.Card)
-def cards_create(card: schemas.CardCreate, db: Session = Depends(get_db)):
-    return crud.create_card(db, card)
-
-
-@app.get("/api/cards/{id}/", response_model=schemas.Card)
-def cards_get(id: int, db: Session = Depends(get_db)):
-    return crud.get_card_by_id(db, id)
+api_router = APIRouter(prefix="/api")
+api_router.include_router(cards_router.router)
+api_router.include_router(users_router.router)
+app.include_router(api_router)

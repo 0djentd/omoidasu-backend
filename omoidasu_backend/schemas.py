@@ -27,5 +27,8 @@ class UserIn(UserBase):
     password: str
 
 
-class UserOut(UserBase):
+class User(UserBase):
     id: int
+
+    class Config:
+        orm_mode = True
