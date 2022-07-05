@@ -10,6 +10,8 @@ class Card(Base):
     id = Column(Integer, primary_key=True)
     question = Column(String)
     answer = Column(String)
+    ok = Column(Integer, default=0)
+    fail = Column(Integer, default=0)
 
 
 class User(Base):

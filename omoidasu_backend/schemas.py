@@ -13,6 +13,8 @@ class CardCreate(CardBase):
 
 class Card(CardBase):
     id: int
+    ok: int
+    fail: int
 
     class Config:
         orm_mode = True
