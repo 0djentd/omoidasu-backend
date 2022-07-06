@@ -24,7 +24,6 @@ def get_card_by_id(db: Session, card_id: int) -> models.Card:
 
 
 def update_card(db: Session, card_id: int, card: schemas.CardCreate):
-    logger.error(db, card, card_id)
     db_card = get_card_by_id(db, card_id)
     if not db_card:
         return None
