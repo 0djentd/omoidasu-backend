@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String
 
 from .database import Base
 
@@ -12,6 +12,8 @@ class Card(Base):
     answer = Column(String)
     ok = Column(Integer, default=0)
     fail = Column(Integer, default=0)
+
+    user_id = Column(Integer, ForeignKey("users.id"))
 
 
 class User(Base):

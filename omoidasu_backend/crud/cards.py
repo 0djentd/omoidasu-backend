@@ -1,4 +1,5 @@
 import logging
+
 from sqlalchemy.orm import Session
 
 from .. import models, schemas
@@ -6,7 +7,8 @@ from .. import models, schemas
 logger = logging.getLogger(__name__)
 
 def create_card(db: Session, card: schemas.CardCreate):
-    db_card = models.Card(**card.dict())
+    # TODO
+    db_card = models.Card(**card.dict(), user_id=0)
     db.add(db_card)
     db.commit()
     db.refresh(db_card)

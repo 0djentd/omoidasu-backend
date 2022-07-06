@@ -15,6 +15,7 @@ class Card(CardBase):
     id: int
     ok: int
     fail: int
+    user_id: int
 
     class Config:
         orm_mode = True
