@@ -1,10 +1,8 @@
-from fastapi import APIRouter, Depends
-from sqlalchemy.orm import Session
-
-from .. import database, schemas
+from fastapi import APIRouter
+from .. import database
 
 router = APIRouter(
-        prefix="/users")
+    prefix="/users")
 
 
 def get_db():

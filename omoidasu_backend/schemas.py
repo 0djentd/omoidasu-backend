@@ -10,7 +10,6 @@ class CardBase(BaseModel):
 class CardCreate(CardBase):
     ok: int
     fail: int
-    pass
 
 
 class Card(CardBase):

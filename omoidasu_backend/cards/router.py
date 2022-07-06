@@ -5,7 +5,7 @@ from .. import database, schemas
 from . import crud
 
 router = APIRouter(
-        prefix="/cards")
+    prefix="/cards")
 
 
 def get_db():

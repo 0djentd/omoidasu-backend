@@ -6,6 +6,7 @@ from .. import models, schemas
 
 logger = logging.getLogger(__name__)
 
+
 def create(db: Session, card: schemas.CardCreate):
     # TODO
     db_card = models.Card(**card.dict(), user_id=0)

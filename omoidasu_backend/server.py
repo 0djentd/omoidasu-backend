@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Depends, FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi import APIRouter, FastAPI
 
 from . import database
 from .cards import router as cards_router
