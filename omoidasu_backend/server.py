@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, FastAPI, HTTPException
 from pydantic import BaseModel
 
 from . import database
-from .routers import cards as cards_router
-from .routers import users as users_router
+from .cards import router as cards_router
+from .users import router as users_router
 
 database.Base.metadata.create_all(bind=database.engine)
 

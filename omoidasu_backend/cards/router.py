@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from .. import database, schemas
-from ..crud import cards as crud
+from . import crud
 
 router = APIRouter(
         prefix="/cards")
