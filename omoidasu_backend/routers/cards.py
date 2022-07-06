@@ -17,25 +17,25 @@ def get_db():
 
 
 @router.get("/", response_model=list[schemas.Card])
-def cards_list(db: Session = Depends(get_db)):
-    return crud.get_cards_list(db)
+def get_list(db: Session = Depends(get_db)):
+    return crud.get_list(db)
 
 
 @router.post("/", response_model=schemas.Card)
-def cards_create(card: schemas.CardCreate, db: Session = Depends(get_db)):
-    return crud.create_card(db, card)
+def create(card: schemas.CardCreate, db: Session = Depends(get_db)):
+    return crud.create(db, card)
 
 
 @router.get("/{id}/", response_model=schemas.Card)
-def cards_get(id: int, db: Session = Depends(get_db)):
-    return crud.get_card_by_id(db, id)
+def get(id: int, db: Session = Depends(get_db)):
+    return crud.get(db, id)
 
 
 @router.patch("/{id}/", response_model=schemas.Card)
-def cards_update(id: int, card: schemas.CardCreate, db: Session = Depends(get_db)):
-    return crud.update_card(db, id, card)
+def update(id: int, card: schemas.CardCreate, db: Session = Depends(get_db)):
+    return crud.update(db, id, card)
 
 
 @router.delete("/{id}/")
-def cards_delete(id: int, db: Session = Depends(get_db)):
-    return crud.delete_card(db, id)
+def delete(id: int, db: Session = Depends(get_db)):
+    return crud.delete(db, id)
