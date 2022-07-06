@@ -12,7 +12,7 @@ uvicorn = "^0.18.2"
 alembic = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^7.1"
 isort = "^5.10.1"
 pylint = "^2.14.4"
 flake8 = "^4.0.1"
